@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, User
+
 # Create your models here.
 
 
@@ -101,9 +102,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, blank=True, null=True)
     profile_picture = models.ImageField(
-        upload_to='users/profile_pictures', blank=True, null=True)
+        upload_to='media/profile_pictures', blank=True, null=True)
     cover_photo = models.ImageField(
-        upload_to='users/cover_photos', blank=True, null=True)
+        upload_to='media/cover_photos', blank=True, null=True)
     address_line_1 = models.CharField(max_length=50, blank=True, null=True)
     address_line_2 = models.CharField(max_length=50, blank=True, null=True)
     country = models.CharField(max_length=15, blank=True, null=True)
@@ -117,3 +118,5 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.email
+
+
